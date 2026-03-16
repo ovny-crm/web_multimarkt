@@ -4,10 +4,10 @@ import { Injectable } from '@angular/core';
  * Datos del lead para telecomunicaciones
  */
 export interface LeadData {
-    name: string;
-    currentOperator: string;  // Operador actual del cliente
-    phone: string;
-    service?: string;         // Fibra, Móvil, Pack, Energía
+    name?: string;
+    currentOperator?: string;  // Operador actual del cliente
+    phone?: string;
+    service?: string;          // Fibra, Móvil, Pack, Energía
 }
 
 @Injectable({
@@ -41,14 +41,21 @@ export class WhatsappService {
      * Formato: "Hola, actualmente estoy con [Operador] y quiero ver si podéis mejorar mi precio. Mi teléfono es [Teléfono]."
      */
     private buildTelecomMessage(lead: LeadData): string {
-        let message = `Hola, soy ${lead.name}.`;
-        message += `\n\nActualmente estoy con *${lead.currentOperator}* y quiero ver si podéis mejorar mi precio.`;
-
-        if (lead.service) {
-            message += `\n\nMe interesa: ${lead.service}`;
+        let message = lead.name ? `Hola, soy ${lead.name}.` : '¡Hola!';
+        
+        if (lead.currentOperator) {
+            message += `\n\nActualmente estoy con *${lead.currentOperator}* y quiero ver si podéis mejorar mi precio.`;
+        } else {
+            message += `\n\nQuiero comparar tarifas y ver si podéis mejorar mi precio actual.`;
         }
 
-        message += `\n\nMi teléfono es: ${lead.phone}`;
+        if (lead.service) {
+            message += `\n\nMe interesa: *${lead.service}*`;
+        }
+
+        if (lead.phone) {
+            message += `\n\nMi teléfono es: ${lead.phone}`;
+        }
 
         return message;
     }

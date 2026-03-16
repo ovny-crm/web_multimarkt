@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { StickyWhatsappButtonComponent } from '../../shared/components/sticky-whatsapp-button/sticky-whatsapp-button.component';
 import { LeadFormComponent } from '../../shared/components/lead-form/lead-form.component';
+import { SeoService } from '../../core/services/seo.service';
 
 interface Service {
     id: number;
@@ -32,6 +33,45 @@ interface Operator {
     templateUrl: './home.component.html'
 })
 export class HomeComponent {
+    constructor(private seoService: SeoService) {
+        this.seoService.updateTitle('Multi Markt - Comparador de Telecomunicaciones y Energía en Elche');
+        this.seoService.updateMetaTags({
+            description: 'Ahorra en tus facturas con Multi Markt. Compara Fibra, Móvil, Fútbol y Energía en Elche.',
+            url: 'https://web-multimarkt.pages.dev/'
+        });
+
+        this.seoService.updateStructuredData({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "serviceType": "Telecomunicaciones y Energía",
+            "provider": {
+                "@type": "LocalBusiness",
+                "name": "Multi Markt",
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Carrer Josep Bernad Amorós, 108",
+                    "addressLocality": "Elx",
+                    "addressRegion": "Alicante",
+                    "postalCode": "03205",
+                    "addressCountry": "ES"
+                }
+            },
+            "areaServed": {
+                "@type": "City",
+                "name": "Elche"
+            },
+            "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Servicios de Multi Markt",
+                "itemListElement": [
+                    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fibra Óptica" } },
+                    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tarifas Móvil" } },
+                    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pack Fútbol" } },
+                    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Luz y Gas" } }
+                ]
+            }
+        });
+    }
     currentYear = new Date().getFullYear();
 
     // State
@@ -119,6 +159,11 @@ export class HomeComponent {
     openContactModal(service?: string): void {
         this.selectedService = service || '';
         this.showContactModal = true;
+    }
+
+    openWhatsappDirect(text: string): void {
+        const url = `https://wa.me/34621660580?text=${encodeURIComponent(text)}`;
+        window.open(url, '_blank');
     }
 
     closeContactModal(): void {

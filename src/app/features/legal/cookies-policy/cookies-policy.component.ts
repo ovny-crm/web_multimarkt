@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SeoService } from '../../../core/services/seo.service';
 
 @Component({
     selector: 'app-cookies-policy',
@@ -33,4 +34,12 @@ import { CommonModule } from '@angular/common';
     </div>
   `
 })
-export class CookiesPolicyComponent { }
+export class CookiesPolicyComponent {
+    constructor(private seoService: SeoService) {
+        this.seoService.updateTitle('Política de Cookies - Multi Markt');
+        this.seoService.updateMetaTags({
+            description: 'Información detallada sobre el uso de cookies en la web de Multi Markt.',
+            url: 'https://web-multimarkt.pages.dev/cookies'
+        });
+    }
+}

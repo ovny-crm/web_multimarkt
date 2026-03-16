@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SeoService } from '../../../core/services/seo.service';
 
 @Component({
     selector: 'app-legal-notice',
@@ -36,4 +37,12 @@ import { CommonModule } from '@angular/common';
     </div>
   `
 })
-export class LegalNoticeComponent { }
+export class LegalNoticeComponent {
+    constructor(private seoService: SeoService) {
+        this.seoService.updateTitle('Aviso Legal - Multi Markt');
+        this.seoService.updateMetaTags({
+            description: 'Aviso legal y datos identificativos de Multi Markt, tu supermercado de telecomunicaciones.',
+            url: 'https://web-multimarkt.pages.dev/aviso-legal'
+        });
+    }
+}

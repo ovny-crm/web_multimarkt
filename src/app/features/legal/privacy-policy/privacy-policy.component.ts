@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SeoService } from '../../../core/services/seo.service';
 
 @Component({
   selector: 'app-privacy-policy',
@@ -45,4 +46,12 @@ import { CommonModule } from '@angular/common';
     </div>
   `
 })
-export class PrivacyPolicyComponent { }
+export class PrivacyPolicyComponent {
+  constructor(private seoService: SeoService) {
+    this.seoService.updateTitle('Política de Privacidad - Multi Markt');
+    this.seoService.updateMetaTags({
+      description: 'Consulta nuestra política de privacidad para saber cómo protegemos tus datos en Multi Markt.',
+      url: 'https://web-multimarkt.pages.dev/politica-privacidad'
+    });
+  }
+}
