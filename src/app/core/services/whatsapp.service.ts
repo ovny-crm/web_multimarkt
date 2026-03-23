@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 /**
  * Datos del lead para telecomunicaciones
@@ -14,6 +15,7 @@ export interface LeadData {
     providedIn: 'root'
 })
 export class WhatsappService {
+    constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
     // Número real de Multi Markt
     private readonly phoneNumber = '34621660580';
 
@@ -24,7 +26,9 @@ export class WhatsappService {
     openWhatsappWithLead(lead: LeadData): void {
         const message = this.buildTelecomMessage(lead);
         const url = this.buildWhatsappUrl(message);
-        window.open(url, '_blank');
+        if (isPlatformBrowser(this.platformId)) {
+            window.open(url, '_blank');
+        }
     }
 
     /**
@@ -33,7 +37,9 @@ export class WhatsappService {
     openWhatsapp(): void {
         const message = '¡Hola! Me gustaría comparar tarifas de telecomunicaciones y ver cuánto puedo ahorrar en mi factura.';
         const url = this.buildWhatsappUrl(message);
-        window.open(url, '_blank');
+        if (isPlatformBrowser(this.platformId)) {
+            window.open(url, '_blank');
+        }
     }
 
     /**

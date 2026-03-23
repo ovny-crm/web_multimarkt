@@ -1,5 +1,5 @@
-import { Component, HostListener } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, HostListener, Inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { StickyWhatsappButtonComponent } from '../../shared/components/sticky-whatsapp-button/sticky-whatsapp-button.component';
@@ -33,7 +33,10 @@ interface Operator {
     templateUrl: './home.component.html'
 })
 export class HomeComponent {
-    constructor(private seoService: SeoService) {
+    constructor(
+        private seoService: SeoService,
+        @Inject(PLATFORM_ID) private platformId: Object
+    ) {
         this.seoService.updateTitle('Multi Markt - Comparador de Telecomunicaciones y Energía en Elche');
         this.seoService.updateMetaTags({
             description: 'Ahorra en tus facturas con Multi Markt. Compara Fibra, Móvil, Fútbol y Energía en Elche.',
@@ -140,8 +143,10 @@ export class HomeComponent {
 
     @HostListener('window:scroll')
     onScroll(): void {
-        this.isScrolled = window.scrollY > 50;
-        this.showBackToTop = window.scrollY > 500;
+        if (isPlatformBrowser(this.platformId)) {
+            this.isScrolled = window.scrollY > 50;
+            this.showBackToTop = window.scrollY > 500;
+        }
     }
 
     toggleMobileMenu(): void {
@@ -153,7 +158,9 @@ export class HomeComponent {
     }
 
     scrollToTop(): void {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (isPlatformBrowser(this.platformId)) {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
     }
 
     openContactModal(service?: string): void {
@@ -162,8 +169,10 @@ export class HomeComponent {
     }
 
     openWhatsappDirect(text: string): void {
-        const url = `https://wa.me/34621660580?text=${encodeURIComponent(text)}`;
-        window.open(url, '_blank');
+        if (isPlatformBrowser(this.platformId)) {
+            const url = `https://wa.me/34621660580?text=${encodeURIComponent(text)}`;
+            window.open(url, '_blank');
+        }
     }
 
     closeContactModal(): void {

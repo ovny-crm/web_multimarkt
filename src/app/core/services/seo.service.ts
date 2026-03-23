@@ -36,7 +36,7 @@ export class SeoService {
       script.setAttribute('class', 'dynamic-sd');
       head.appendChild(script);
     }
-    script.text = JSON.stringify(data);
+    script.textContent = JSON.stringify(data);
   }
 
   updateMetaTags(config: { title?: string; description?: string; image?: string; url?: string }) {
