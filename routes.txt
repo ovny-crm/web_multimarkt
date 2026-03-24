@@ -10,7 +10,12 @@
 /blog/orange-packs-ahorro-o-exceso
 /blog/movistar-premium-calidad-sin-sobrecoste
 /blog/ventajas-ahorro-energia-2026
-/comparativa/digi
-/politica-privacidad
+/blog/starlink-espana-alternativa-apagones-red
+/blog/ia-ahorro-energetico-realidad-marketing-2026
+/blog/impacto-conflictos-globales-factura-luz-fibra
+/blog/ciberseguridad-hogar-protege-wifi-nuevos-ataques
+/blog/fin-del-cobre-abril-2026-que-hacer
+/comparativa-digi
 /aviso-legal
+/politica-privacidad
 /cookies
