@@ -6,7 +6,6 @@ import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
     provideClientHydration() // CRÍTICO para SEO - permite que Google lea el HTML renderizado
   ]

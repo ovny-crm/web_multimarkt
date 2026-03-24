@@ -8,6 +8,6 @@ import { RouterOutlet } from '@angular/router';
   template: '<router-outlet></router-outlet>',
   styleUrl: './app.css'
 })
-export class App {
+export class AppComponent {
   title = 'Multi Markt - Comparador de Telecomunicaciones';
 }

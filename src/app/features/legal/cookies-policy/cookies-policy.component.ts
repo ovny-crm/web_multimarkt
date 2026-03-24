@@ -36,8 +36,8 @@ import { SeoService } from '../../../core/services/seo.service';
 })
 export class CookiesPolicyComponent {
     constructor(private seoService: SeoService) {
-        this.seoService.updateTitle('Política de Cookies - Multi Markt');
-        this.seoService.updateMetaTags({
+        this.seoService.updateTags({
+            title: 'Política de Cookies',
             description: 'Información detallada sobre el uso de cookies en la web de Multi Markt.',
             url: 'https://web-multimarkt.pages.dev/cookies'
         });

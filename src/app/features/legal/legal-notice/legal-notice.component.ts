@@ -39,8 +39,8 @@ import { SeoService } from '../../../core/services/seo.service';
 })
 export class LegalNoticeComponent {
     constructor(private seoService: SeoService) {
-        this.seoService.updateTitle('Aviso Legal - Multi Markt');
-        this.seoService.updateMetaTags({
+        this.seoService.updateTags({
+            title: 'Aviso Legal',
             description: 'Aviso legal y datos identificativos de Multi Markt, tu supermercado de telecomunicaciones.',
             url: 'https://web-multimarkt.pages.dev/aviso-legal'
         });
