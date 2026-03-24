@@ -1,4 +1,16 @@
 /
+/blog
+/blog/que-hacer-cuando-falla-digi-guia-completa
+/blog/vodafone-factura-inflada-trucos-ahorro
+/blog/o2-versus-multimarkt-fibra-sencilla
+/blog/lowi-mejor-red-mismo-precio
+/blog/aproob-operadoras-locales-merecen-la-pena
+/blog/redi-atencion-al-cliente-comparativa
+/blog/avatel-fibra-rural-alternativas
+/blog/orange-packs-ahorro-o-exceso
+/blog/movistar-premium-calidad-sin-sobrecoste
+/blog/ventajas-ahorro-energia-2026
+/comparativa/digi
 /politica-privacidad
 /aviso-legal
 /cookies

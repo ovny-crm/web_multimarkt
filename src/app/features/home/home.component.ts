@@ -129,7 +129,7 @@ export class HomeComponent {
         { id: 2, name: 'Vodafone', logo: 'assets/images/logos/Vodafone.svg' },
         { id: 3, name: 'Avatel', logo: 'assets/images/logos/Avatel.svg' },
         { id: 4, name: 'Lowi', logo: 'assets/images/logos/Lowi.svg' },
-        { id: 5, name: 'Aproop!', logo: 'assets/images/logos/Aproop!.svg' },
+        { id: 5, name: 'Aproop!', logo: 'assets/images/logos/Aproop.svg' },
         { id: 6, name: 'Orange', logo: 'assets/images/logos/Orange.svg' },
     ];
 

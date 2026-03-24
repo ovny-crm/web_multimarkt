@@ -25,7 +25,9 @@
             "ssr": {
               "entry": "server.ts"
             },
-            "prerender": false,
+            "prerender": {
+              "routesFile": "routes.txt"
+            },
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
