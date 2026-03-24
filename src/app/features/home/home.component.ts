@@ -5,6 +5,8 @@ import { RouterModule } from '@angular/router';
 import { StickyWhatsappButtonComponent } from '../../shared/components/sticky-whatsapp-button/sticky-whatsapp-button.component';
 import { LeadFormComponent } from '../../shared/components/lead-form/lead-form.component';
 import { SeoService } from '../../core/services/seo.service';
+import { SavingCalculatorComponent } from '../../shared/components/saving-calculator/saving-calculator.component';
+import { PricingTableComponent } from '../../shared/components/pricing-table/pricing-table.component';
 
 interface Service {
     id: number;
@@ -28,7 +30,9 @@ interface Operator {
         FormsModule,
         RouterModule,
         StickyWhatsappButtonComponent,
-        LeadFormComponent
+        LeadFormComponent,
+        SavingCalculatorComponent,
+        PricingTableComponent
     ],
     templateUrl: './home.component.html'
 })

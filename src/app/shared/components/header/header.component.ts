@@ -21,6 +21,7 @@ import { RouterModule } from '@angular/router';
             <div class="hidden md:flex items-center gap-8">
                 <a routerLink="/" class="text-sm font-medium text-slate-300 hover:text-cyan-400 transition-colors uppercase tracking-wider">Inicio</a>
                 <a routerLink="/blog" class="text-sm font-medium text-slate-300 hover:text-cyan-400 transition-colors uppercase tracking-wider">Blog</a>
+                <a routerLink="/glosario" class="text-sm font-medium text-slate-300 hover:text-cyan-400 transition-colors uppercase tracking-wider">Glosario</a>
             </div>
 
             <!-- CTA Button Navbar (WhatsApp) -->

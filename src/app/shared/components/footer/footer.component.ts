@@ -53,9 +53,13 @@ import { RouterModule } from '@angular/router';
                             <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity"></span>
                             Blog de Ahorro
                         </a></li>
-                        <li><a routerLink="/comparativa/digi" class="text-slate-400 hover:text-cyan-400 transition-colors flex items-center gap-2 group">
+                        <li><a routerLink="/comparativa-digi" class="text-slate-400 hover:text-cyan-400 transition-colors flex items-center gap-2 group">
                             <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity"></span>
                             Comparativas
+                        </a></li>
+                        <li><a routerLink="/glosario" class="text-slate-400 hover:text-cyan-400 transition-colors flex items-center gap-2 group">
+                            <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                            Glosario Técnico
                         </a></li>
                     </ul>
                 </div>
