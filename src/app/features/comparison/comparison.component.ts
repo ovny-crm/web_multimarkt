@@ -103,6 +103,7 @@ export class ComparisonComponent implements OnInit {
       title: 'Alternativa a Digi: ¿Por qué cambiar a Multi-Markt?',
       description: '¿Cansado de los fallos de Digi? Descubre por qué miles de usuarios están cambiando a Multi-Markt para su fibra y móvil en Elche.',
       keywords: 'alternativa digi, fallos digi, problemas digi, mejor fibra 2026, multimarkt vs digi',
+      url: 'https://multimarkt.ovny.net/comparativa-digi',
       type: 'website'
     });
   }

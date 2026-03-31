@@ -159,6 +159,7 @@ export class BlogPostComponent implements OnInit {
           title: this.post.title,
           description: this.post.excerpt,
           image: this.post.image,
+          url: `https://multimarkt.ovny.net/blog/${this.post.slug}`,
           type: 'article',
           keywords: this.post.tags.join(', ')
         });

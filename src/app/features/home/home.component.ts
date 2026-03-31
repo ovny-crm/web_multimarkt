@@ -44,7 +44,7 @@ export class HomeComponent {
         this.seoService.updateTitle('Multi Markt - Comparador de Telecomunicaciones y Energía en Elche');
         this.seoService.updateMetaTags({
             description: 'Ahorra en tus facturas con Multi Markt. Compara Fibra, Móvil, Fútbol y Energía en Elche.',
-            url: 'https://web-multimarkt.pages.dev/'
+            url: 'https://multimarkt.ovny.net/'
         });
 
         this.seoService.updateStructuredData({

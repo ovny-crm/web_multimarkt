@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { SeoService } from '../../core/services/seo.service';
 
 interface Term {
   word: string;
@@ -122,7 +123,19 @@ interface Term {
     ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
   `]
 })
-export class GlossaryComponent {
+export class GlossaryComponent implements OnInit {
+  private seoService = inject(SeoService);
+  
+  ngOnInit() {
+    this.seoService.updateTags({
+      title: 'Glosario de Telecomunicaciones: Entiende tu Factura',
+      description: 'Aprende qué es el CG-NAT, la Fibra Simétrica, el Roaming y más. Guía completa para que no te engañen en tu factura de luz o internet.',
+      url: 'https://multimarkt.ovny.net/glosario',
+      keywords: 'glosario telecomunicaciones, que es cgnat, fibra simetrica, ahorro facturas, conceptos internet',
+      type: 'website'
+    });
+  }
+
   searchTerm: string = '';
   selectedCategory: string = 'Todos';
 

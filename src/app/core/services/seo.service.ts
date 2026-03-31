@@ -69,7 +69,7 @@ export class SeoService {
   }
 
   private updateCanonicalUrl(url?: string) {
-    if (typeof document === 'undefined') return;
+    const canonicalUrl = url || (typeof window !== 'undefined' ? window.location.href : 'https://multimarkt.ovny.net/');
     
     let link: HTMLLinkElement | null = this.document.querySelector('link[rel="canonical"]');
     if (!link) {
@@ -77,15 +77,20 @@ export class SeoService {
       link.setAttribute('rel', 'canonical');
       this.document.head.appendChild(link);
     }
-    link.setAttribute('href', url || (typeof window !== 'undefined' ? window.location.href : ''));
+    link.setAttribute('href', canonicalUrl);
   }
 
   setStructuredData(jsonLd: any) {
-    if (typeof document === 'undefined') return;
-
     try {
+      // Remove previous JSON-LD if any to avoid duplicates
+      const existingScript = this.document.querySelector('script[type="application/ld+json"]#dynamic-seo-data');
+      if (existingScript) {
+        existingScript.remove();
+      }
+
       const script = this.document.createElement('script');
       script.type = 'application/ld+json';
+      script.id = 'dynamic-seo-data';
       script.text = JSON.stringify(jsonLd);
       this.document.head.appendChild(script);
     } catch (e) {
