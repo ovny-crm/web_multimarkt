@@ -51,6 +51,7 @@ export class SeoService {
 
     // Standard Tags
     this.metaService.updateTag({ name: 'description', content: description });
+    this.metaService.updateTag({ name: 'robots', content: 'index, follow' });
     if (config.keywords) {
       this.metaService.updateTag({ name: 'keywords', content: config.keywords });
     }
