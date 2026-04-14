@@ -67,9 +67,14 @@ export class BlogListComponent implements OnInit {
   ngOnInit() {
     this.posts = this.blogService.getPosts();
     this.seoService.updateTags({
-      title: 'Blog de Ahorro y Tecnología: Guías y Comparativas',
-      description: 'Aprende a ahorrar en tus facturas con nuestras guías expertas.',
-      keywords: 'blog ahorro, comparativa fibra, facturas luz, tecnología'
+      title: 'Blog de Ahorro y Tecnología: Guías para Pagar Menos',
+      description: 'Consejos expertos, comparativas de tarifas y guías de tecnología para ahorrar en tus facturas de Fibra, Móvil y Energía.',
+      keywords: 'blog ahorro, comparativa fibra, facturas luz, tecnología, elche'
     });
+
+    this.seoService.setBreadcrumbs([
+      { name: 'Inicio', url: '/' },
+      { name: 'Blog', url: '/blog' }
+    ]);
   }
 }

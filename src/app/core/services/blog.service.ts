@@ -351,4 +351,21 @@ export class BlogService {
   getLatestPosts(limit: number = 3) {
     return this.posts.slice(0, limit);
   }
+
+  getRelatedPosts(currentPost: BlogPost, limit: number = 3): BlogPost[] {
+    return this.posts
+      .filter(p => p.id !== currentPost.id) // No incluir el mismo post
+      .map(p => {
+        // Calcular "score" de relación
+        let score = 0;
+        if (p.category === currentPost.category) score += 5;
+        const commonTags = p.tags.filter(t => currentPost.tags.includes(t));
+        score += commonTags.length * 2;
+        return { post: p, score };
+      })
+      .filter(item => item.score > 0)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, limit)
+      .map(item => item.post);
+  }
 }

@@ -19,13 +19,16 @@ export class SeoService {
   private metaService = inject(Meta);
   private document = inject(DOCUMENT);
 
+  private readonly DEFAULT_IMAGE = 'https://multimarkt.ovny.net/assets/images/logo-planeta-multi-markt.png';
+  private readonly SITE_NAME = 'Multi-Markt';
+
   // Backward compatibility
   updateTitle(title: string) {
     this.updateTags({ title, description: '' });
   }
 
   updateMetaTags(config: { description?: string; keywords?: string; url?: string; image?: string }) {
-    const currentTitle = this.titleService.getTitle().replace(' | Multi-Markt', '');
+    const currentTitle = this.titleService.getTitle().replace(` | ${this.SITE_NAME}`, '');
     this.updateTags({
       title: currentTitle,
       description: config.description || '',
@@ -40,22 +43,25 @@ export class SeoService {
   }
 
   updateTags(config: SeoConfig) {
-    const title = config.title.includes('Multi-Markt') ? config.title : `${config.title} | Multi-Markt`;
+    const title = config.title.includes(this.SITE_NAME) ? config.title : `${config.title} | ${this.SITE_NAME}`;
+    const description = config.description || 'Ahorra en tus facturas con Multi Markt. Compara Fibra, Móvil y Energía en Elche.';
+    const image = config.image || this.DEFAULT_IMAGE;
+    
     this.titleService.setTitle(title);
 
     // Standard Tags
-    this.metaService.updateTag({ name: 'description', content: config.description });
+    this.metaService.updateTag({ name: 'description', content: description });
     if (config.keywords) {
       this.metaService.updateTag({ name: 'keywords', content: config.keywords });
     }
 
     // Open Graph
     this.metaService.updateTag({ property: 'og:title', content: title });
-    this.metaService.updateTag({ property: 'og:description', content: config.description });
+    this.metaService.updateTag({ property: 'og:description', content: description });
     this.metaService.updateTag({ property: 'og:type', content: config.type || 'website' });
-    if (config.image) {
-      this.metaService.updateTag({ property: 'og:image', content: config.image });
-    }
+    this.metaService.updateTag({ property: 'og:image', content: image });
+    this.metaService.updateTag({ property: 'og:site_name', content: this.SITE_NAME });
+
     if (config.url) {
       this.metaService.updateTag({ property: 'og:url', content: config.url });
     }
@@ -63,9 +69,40 @@ export class SeoService {
     // Twitter
     this.metaService.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
     this.metaService.updateTag({ name: 'twitter:title', content: title });
-    this.metaService.updateTag({ name: 'twitter:description', content: config.description });
+    this.metaService.updateTag({ name: 'twitter:description', content: description });
+    this.metaService.updateTag({ name: 'twitter:image', content: image });
 
     this.updateCanonicalUrl(config.url);
+  }
+
+  setBreadcrumbs(items: { name: string, url: string }[]) {
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": items.map((item, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "name": item.name,
+        "item": `https://multimarkt.ovny.net${item.url}`
+      }))
+    };
+    this.setStructuredData(jsonLd, 'breadcrumb-data');
+  }
+
+  setFaqSchema(faqs: { question: string, answer: string }[]) {
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.answer
+        }
+      }))
+    };
+    this.setStructuredData(jsonLd, 'faq-data');
   }
 
   private updateCanonicalUrl(url?: string) {
@@ -80,17 +117,17 @@ export class SeoService {
     link.setAttribute('href', canonicalUrl);
   }
 
-  setStructuredData(jsonLd: any) {
+  setStructuredData(jsonLd: any, id: string = 'dynamic-seo-data') {
     try {
-      // Remove previous JSON-LD if any to avoid duplicates
-      const existingScript = this.document.querySelector('script[type="application/ld+json"]#dynamic-seo-data');
+      // Remove previous JSON-LD if any with the same ID to avoid duplicates
+      const existingScript = this.document.querySelector(`script[type="application/ld+json"]#${id}`);
       if (existingScript) {
         existingScript.remove();
       }
 
       const script = this.document.createElement('script');
       script.type = 'application/ld+json';
-      script.id = 'dynamic-seo-data';
+      script.id = id;
       script.text = JSON.stringify(jsonLd);
       this.document.head.appendChild(script);
     } catch (e) {

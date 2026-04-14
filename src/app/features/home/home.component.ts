@@ -1,5 +1,5 @@
 import { Component, HostListener, Inject, PLATFORM_ID } from '@angular/core';
-import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { CommonModule, isPlatformBrowser, NgOptimizedImage } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { StickyWhatsappButtonComponent } from '../../shared/components/sticky-whatsapp-button/sticky-whatsapp-button.component';
@@ -32,7 +32,8 @@ interface Operator {
         StickyWhatsappButtonComponent,
         LeadFormComponent,
         SavingCalculatorComponent,
-        PricingTableComponent
+        PricingTableComponent,
+        NgOptimizedImage
     ],
     templateUrl: './home.component.html'
 })
@@ -41,9 +42,9 @@ export class HomeComponent {
         private seoService: SeoService,
         @Inject(PLATFORM_ID) private platformId: Object
     ) {
-        this.seoService.updateTitle('Multi Markt - Comparador de Telecomunicaciones y Energía en Elche');
-        this.seoService.updateMetaTags({
-            description: 'Ahorra en tus facturas con Multi Markt. Compara Fibra, Móvil, Fútbol y Energía en Elche.',
+        this.seoService.updateTags({
+            title: 'Mejor Comparador de Fibra, Móvil y Energía en Elche',
+            description: 'Ahorra hasta un 30% en tus facturas. Compara las mejores tarifas de Fibra Óptica, Móvil, Fútbol y Energía con Multi Markt en Elche. Atención personalizada.',
             url: 'https://multimarkt.ovny.net/'
         });
 
@@ -78,6 +79,44 @@ export class HomeComponent {
                 ]
             }
         });
+
+        const faqs = [
+            {
+                question: '¿Qué necesito para que Multi Markt analice mi factura?',
+                answer: 'Solo necesitas una factura reciente (en PDF o foto). Nuestro equipo la analiza para encontrar servicios innecesarios o tarifas más baratas.'
+            },
+            {
+                question: '¿Tengo que pagar algo por el asesoramiento?',
+                answer: 'No. El servicio de comparación y asesoramiento de Multi-Markt es 100% gratuito para el cliente.'
+            },
+            {
+                question: '¿Cuánto tiempo tarda el proceso de cambio de compañía?',
+                answer: 'Normalmente entre 2 y 5 días hábiles, dependiendo del tipo de servicio (fibra o móvil). Nosotros nos encargamos de toda la gestión.'
+            },
+            {
+                question: '¿Puedo contratar fibra aunque no viva en Elche?',
+                answer: 'Sí, trabajamos con operadoras nacionales como O2, Vodafone y Orange que tienen cobertura en toda España.'
+            }
+        ];
+        this.seoService.setFaqSchema(faqs);
+
+        this.seoService.setStructuredData({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Multi Markt",
+            "url": "https://multimarkt.ovny.net",
+            "logo": "https://multimarkt.ovny.net/assets/images/logo-planeta-multi-markt.png",
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+34621660580",
+                "contactType": "customer service",
+                "areaServed": "ES",
+                "availableLanguage": "Spanish"
+            },
+            "sameAs": [
+                "https://wa.me/34621660580"
+            ]
+        }, 'org-schema');
     }
     currentYear = new Date().getFullYear();
 

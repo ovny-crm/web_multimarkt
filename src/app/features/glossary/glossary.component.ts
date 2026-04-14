@@ -62,7 +62,7 @@ interface Term {
           <!-- Sidebar -->
           <aside class="lg:col-span-3 space-y-6">
             <div class="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-[2.5rem] p-8 sticky top-24 shadow-2xl">
-              <h4 class="text-white font-black uppercase tracking-widest text-[10px] mb-8 opacity-40">Categorías</h4>
+              <h2 class="text-white font-black uppercase tracking-widest text-[10px] mb-8 opacity-40">Categorías</h2>
               <nav class="space-y-3">
                 @for (cat of categories; track cat) {
                   <button 
@@ -158,12 +158,34 @@ export class GlossaryComponent implements OnInit {
 
   ngOnInit() {
     this.seoService.updateTags({
-      title: 'Glosario de Telecomunicaciones: Entiende tu Factura',
-      description: 'Aprende qué es el CG-NAT, la Fibra Simétrica, el Roaming y más. Guía completa para que no te engañen en tu factura de luz o internet.',
+      title: 'Diccionario de Ahorro: Glosario de Telecomunicaciones',
+      description: 'Entiende tu factura de Fibra, Móvil y Luz. Guía experta sobre CG-NAT, ONT, Roaming y más para que ahorres en Elche.',
       url: 'https://multimarkt.ovny.net/glosario',
-      keywords: 'glosario telecomunicaciones, que es cgnat, fibra simetrica, ahorro facturas, conceptos internet',
+      keywords: 'glosario telecomunicaciones, que es cgnat, fibra simetrica, ahorro facturas, conceptos internet, elche ahorro',
       type: 'website'
     });
+
+    this.seoService.setBreadcrumbs([
+      { name: 'Inicio', url: '/' },
+      { name: 'Glosario', url: '/glosario' }
+    ]);
+
+    this.seoService.setStructuredData({
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Glosario de Telecomunicaciones Multi Markt",
+      "description": "Conceptos clave sobre fibra, móvil y energía",
+      "itemListElement": this.terms.map((term, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "item": {
+          "@type": "DefinedTerm",
+          "name": term.word,
+          "description": term.definition,
+          "url": `https://multimarkt.ovny.net/glosario#${term.slug}`
+        }
+      }))
+    }, 'glossary-list-schema');
   }
 
   getTermsCount(category: string): number {

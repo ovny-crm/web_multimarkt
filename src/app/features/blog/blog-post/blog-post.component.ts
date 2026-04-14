@@ -66,7 +66,25 @@ import { SafeHtmlPipe } from '../../../shared/pipes/safe-html.pipe';
             }
           </div>
         </footer>
-      </article>
+60: 
+61:         <!-- Related Posts Section -->
+62:         @if (relatedPosts.length > 0) {
+63:           <section class="mt-20 pt-16 border-t border-gray-100">
+64:             <h2 class="text-3xl font-black text-gray-900 mb-10 uppercase tracking-tight">Sigue leyendo</h2>
+65:             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+66:               @for (rPost of relatedPosts; track rPost.id) {
+67:                 <a [routerLink]="['/blog', rPost.slug]" class="group flex flex-col gap-4">
+68:                   <img [src]="rPost.image" [alt]="rPost.title" class="w-full h-48 object-cover rounded-2xl shadow-md group-hover:shadow-xl transition-all group-hover:-translate-y-1">
+69:                   <div>
+70:                     <span class="text-xs font-bold text-blue-600 uppercase">{{ rPost.category }}</span>
+71:                     <h3 class="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors mt-1">{{ rPost.title }}</h3>
+72:                   </div>
+73:                 </a>
+74:               }
+75:             </div>
+76:           </section>
+77:         }
+78:       </article>
     } @else {
       <div class="text-center py-20">
         <h2 class="text-2xl font-bold text-gray-900">Post no encontrado</h2>
@@ -141,6 +159,7 @@ export class BlogPostComponent implements OnInit {
   private seoService = inject(SeoService);
   private platformId = inject(PLATFORM_ID);
   post: BlogPost | undefined;
+  relatedPosts: BlogPost[] = [];
 
   openWhatsapp(text: string) {
     if (isPlatformBrowser(this.platformId)) {
@@ -163,6 +182,28 @@ export class BlogPostComponent implements OnInit {
           type: 'article',
           keywords: this.post.tags.join(', ')
         });
+
+        this.seoService.setBreadcrumbs([
+          { name: 'Inicio', url: '/' },
+          { name: 'Blog', url: '/blog' },
+          { name: this.post.title, url: `/blog/${this.post.slug}` }
+        ]);
+
+        this.seoService.setStructuredData({
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": this.post.title,
+          "image": [this.post.image],
+          "datePublished": this.post.date,
+          "author": [{
+            "@type": "Person",
+            "name": this.post.author,
+            "url": "https://multimarkt.ovny.net/blog"
+          }],
+          "description": this.post.excerpt
+        }, 'blog-post-schema');
+
+        this.relatedPosts = this.blogService.getRelatedPosts(this.post);
       }
     });
   }
