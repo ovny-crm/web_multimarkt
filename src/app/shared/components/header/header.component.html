@@ -1,0 +1,21 @@
+<header class="main-header">
+    <nav class="nav-container">
+        <!-- Logo -->
+        <a routerLink="/" class="logo-area">
+            <img src="assets/images/logo-planeta-multi-markt.png" alt="Multi Markt Logo" class="logo-img">
+            <span class="logo-text">Multi <span class="brand-accent">Markt</span></span>
+        </a>
+
+        <!-- Nav Links -->
+        <div class="nav-links">
+            <a routerLink="/" class="nav-link">Inicio</a>
+            <a routerLink="/blog" class="nav-link">Blog</a>
+            <a routerLink="/glosario" class="nav-link">Glosario</a>
+        </div>
+
+        <!-- CTA Button Navbar (WhatsApp) -->
+        <button (click)="openWhatsapp('Hola, me gustaría comparar tarifas.')" class="header-cta">
+            <span>💬 Contactar</span>
+        </button>
+    </nav>
+</header>

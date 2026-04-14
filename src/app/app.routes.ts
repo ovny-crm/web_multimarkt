@@ -9,5 +9,6 @@ export const routes: Routes = [
   { path: 'politica-privacidad', loadComponent: () => import('./features/legal/privacy-policy/privacy-policy.component').then(m => m.PrivacyPolicyComponent) },
   { path: 'aviso-legal', loadComponent: () => import('./features/legal/legal-notice/legal-notice.component').then(m => m.LegalNoticeComponent) },
   { path: 'cookies', loadComponent: () => import('./features/legal/cookies-policy/cookies-policy.component').then(m => m.CookiesPolicyComponent) },
+  { path: 'links', loadComponent: () => import('./features/social-hub/social-hub.component').then(m => m.SocialHubComponent) },
   { path: '**', redirectTo: '' }
 ];

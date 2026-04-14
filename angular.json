@@ -43,7 +43,7 @@
               "src/_redirects"
             ],
             "styles": [
-              "src/styles-compiled.css"
+              "src/styles.scss"
             ]
           },
           "configurations": {

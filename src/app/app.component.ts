@@ -10,15 +10,15 @@ import { StickyWhatsappButtonComponent } from './shared/components/sticky-whatsa
   standalone: true,
   imports: [RouterOutlet, HeaderComponent, FooterComponent, StickyWhatsappButtonComponent, SocialProofComponent],
   template: `
-    <app-header></app-header>
-    <main class="min-h-screen pt-16">
-      <router-outlet></router-outlet>
+    <app-header />
+    <main class="app-main-wrapper">
+      <router-outlet />
     </main>
-    <app-footer></app-footer>
+    <app-footer />
     <app-sticky-whatsapp-button />
     <app-social-proof />
   `,
-  styleUrl: './app.css'
+  styleUrl: './app.scss'
 })
 export class AppComponent {
   title = 'Multi Markt - Comparador de Telecomunicaciones';

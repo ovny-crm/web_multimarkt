@@ -1,0 +1,86 @@
+@import 'styles/variables';
+@import 'styles/mixins';
+
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $z-fixed;
+  background-color: rgba($slate-900, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid $slate-800;
+
+  .nav-container {
+    @include container;
+    height: 4rem; // h-16
+    @include flex(space-between, center);
+  }
+
+  .logo-area {
+    @include flex(center, center, row, 0.75rem); // gap-3
+    
+    .logo-img {
+      width: 2.5rem; // w-10
+      height: 2.5rem; // h-10
+      object-fit: contain;
+      filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+    }
+
+    .logo-text {
+      font-size: 1.25rem; // text-xl
+      font-weight: 700;
+      color: $white;
+      letter-spacing: -0.025em;
+      text-transform: uppercase;
+
+      .brand-accent {
+        color: $primary-teal;
+      }
+    }
+  }
+
+  .nav-links {
+    display: none;
+
+    @include respond-to('md') {
+      @include flex(center, center, row, 2rem); // gap-8
+    }
+
+    .nav-link {
+      font-size: 0.875rem; // text-sm
+      font-weight: 500;
+      color: $slate-300;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      @include transition(color 0.2s ease);
+
+      &:hover {
+        color: $primary-teal;
+      }
+    }
+  }
+
+  .header-cta {
+    @include flex(center, center, row, 0.5rem); // gap-2
+    padding: 0.625rem 1.25rem; // py-2.5 px-5
+    background-color: $primary-green;
+    color: $white;
+    font-size: 0.875rem;
+    font-weight: 700;
+    border-radius: $radius-full;
+    border: none;
+    box-shadow: 0 10px 15px -3px rgba($primary-green, 0.2);
+    cursor: pointer;
+    @include transition(all 0.2s ease);
+
+    &:hover {
+      background-color: darken($primary-green, 5%);
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}
