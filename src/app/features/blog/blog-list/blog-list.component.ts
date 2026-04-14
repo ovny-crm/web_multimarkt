@@ -19,6 +19,8 @@ import { SeoService } from '../../../core/services/seo.service';
         </p>
       </header>
 
+      <h2 class="sr-only">Listado de artículos del blog</h2>
+
       <div class="grid gap-12 lg:grid-cols-2 xl:grid-cols-3">
         @for (post of posts; track post.id) {
           <article class="flex flex-col overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300">

@@ -17,7 +17,7 @@ import { RouterModule } from '@angular/router';
                 <!-- Brand Column -->
                 <div class="space-y-6">
                     <div class="flex items-center gap-3">
-                        <img src="assets/images/logo-planeta-multi-markt.png" alt="Multi Markt Logo"
+                        <img src="assets/images/logo-planeta-multi-markt.png" alt="Multi Markt Elche - Asesoría en Fibra y Energía"
                             class="w-12 h-12 object-contain drop-shadow-[0_0_10px_rgba(34,211,238,0.5)]">
                         <span class="text-2xl font-bold tracking-tighter uppercase">Multi <span class="text-cyan-400">Markt</span></span>
                     </div>
@@ -26,14 +26,14 @@ import { RouterModule } from '@angular/router';
                     </p>
                     <!-- Social Links -->
                     <div class="flex items-center gap-4">
-                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-blue-600 transition-all group">
+                        <a href="https://wa.me/34621660580" target="_blank" rel="noopener" aria-label="WhatsApp de Multi Markt Elche" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#25D366] transition-all group">
+                            <span class="text-xs font-bold transform group-hover:scale-110 transition-transform">WA</span>
+                        </a>
+                        <a href="https://instagram.com/multimarkt_elche" target="_blank" rel="noopener" aria-label="Instagram de Multi Markt Elche" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#E1306C] transition-all group">
                             <span class="text-xs font-bold transform group-hover:scale-110 transition-transform">IG</span>
                         </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-blue-600 transition-all group">
+                        <a href="https://facebook.com/multimarkt" target="_blank" rel="noopener" aria-label="Facebook de Multi Markt Elche" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#1877F2] transition-all group">
                             <span class="text-xs font-bold transform group-hover:scale-110 transition-transform">FB</span>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-blue-600 transition-all group">
-                            <span class="text-xs font-bold transform group-hover:scale-110 transition-transform">TK</span>
                         </a>
                     </div>
                 </div>
