@@ -68,6 +68,13 @@ $breakpoints: (
   background-clip: text;
 }
 
+@mixin gradient-text($gradient) {
+  background: $gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 @mixin absolute-fill {
   position: absolute;
   top: 0;

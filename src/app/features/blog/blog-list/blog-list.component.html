@@ -1,0 +1,54 @@
+<div class="blog-list-wrapper">
+  <div class="blog-container">
+    <header class="blog-header">
+      <h1 class="blog-title">
+        Blog de Ahorro y Tecnología
+      </h1>
+      <p class="blog-subtitle">
+        Consejos, guías y comparativas para que nunca pagues de más.
+      </p>
+    </header>
+
+    <h2 class="sr-only">Listado de artículos del blog</h2>
+
+    <div class="blog-grid">
+      @for (post of posts; track post.id) {
+        <article class="blog-card">
+          <div class="card-image-box">
+            <img [src]="post.image" class="card-image" [alt]="post.title">
+            <div class="image-overlay"></div>
+          </div>
+          
+          <div class="card-content">
+            <div class="content-top">
+              <span class="category-badge">{{ post.category }}</span>
+              
+              <a [routerLink]="['/blog', post.slug]" class="title-link">
+                <h3 class="card-title">
+                  {{ post.title }}
+                </h3>
+              </a>
+              
+              <p class="card-excerpt">
+                {{ post.excerpt }}
+              </p>
+            </div>
+            
+            <div class="card-footer">
+              <div class="author-info">
+                <p class="author-name">{{ post.author }}</p>
+                <time class="post-date" [attr.datetime]="post.date">{{ post.date | date:'longDate' }}</time>
+              </div>
+              <a [routerLink]="['/blog', post.slug]" class="read-more">
+                Leer más 
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</div>

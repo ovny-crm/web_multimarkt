@@ -191,8 +191,6 @@ export class HomeComponent {
         { id: 3, name: 'O2', logo: 'assets/images/logos/O2.svg' },
         { id: 7, name: 'Orange', logo: 'assets/images/logos/Orange.svg' },
         { id: 8, name: 'Vodafone', logo: 'assets/images/logos/Vodafone.svg' },
-        { id: 4, name: 'Movistar', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Movistar_logo.svg/2560px-Movistar_logo.svg.png' },
-        { id: 5, name: 'Redi', logo: 'https://redi.es/wp-content/uploads/2022/01/logo-redi-internet-elche.png' },
         { id: 6, name: 'Avatel', logo: 'assets/images/logos/Avatel.svg' },
     ];
 

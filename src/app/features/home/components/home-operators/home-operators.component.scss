@@ -29,24 +29,38 @@
   }
 
   .operators-grid {
-    @include flex(center, center, row, 2.5rem);
-    flex-wrap: wrap;
+    @include flex(space-between, center, row, 1.5rem);
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 1rem 0;
+    
+    // Hide scrollbar but keep functionality
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     @include respond-to('md') {
-      @include flex(center, center, row, 5rem);
+      @include flex(center, center, row, 4rem);
+      overflow-x: visible;
     }
 
     .operator-item {
       @include flex(center, center);
-      width: 140px;
-      height: 50px;
-      opacity: 0.35;
-      filter: grayscale(1) brightness(1.2) contrast(1.1);
+      flex: 0 0 auto; // Prevent shrinking
+      width: 120px;
+      height: 40px;
+      opacity: 0.8;
       @include transition(all 0.4s cubic-bezier(0.4, 0, 0.2, 1));
+
+      @include respond-to('md') {
+        width: 140px;
+        height: 50px;
+      }
 
       &:hover {
         opacity: 1;
-        filter: grayscale(0) brightness(1) contrast(1);
         transform: scale(1.1) translateY(-2px);
       }
 

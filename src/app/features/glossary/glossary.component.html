@@ -1,0 +1,83 @@
+<div class="glossary-wrapper">
+  <!-- Premium Background Effects -->
+  <div class="bg-glow top-glow"></div>
+  <div class="bg-glow bottom-glow"></div>
+
+  <div class="glossary-container">
+    <header class="glossary-header">
+      <span class="hub-tag">
+        Knowledge Hub {{ currentYear }}
+      </span>
+      <h1 class="glossary-title">
+        La Biblia del <span class="gradient-text">Ahorro</span>
+      </h1>
+      <p class="glossary-subtitle">
+        Domina los términos para que nunca más te engañen en tu factura. <br class="hidden md:block"> 
+        Actualizado por expertos de Multi-Markt en <strong>{{ currentYear }}</strong>.
+      </p>
+    </header>
+
+    <div class="glossary-layout">
+      <!-- Sidebar -->
+      <aside class="glossary-sidebar">
+        <div class="sidebar-card">
+          <h2 class="sidebar-title">Categorías</h2>
+          <nav class="category-nav">
+            @for (cat of categories; track cat) {
+              <button 
+                (click)="selectedCategory = cat"
+                [class.active]="selectedCategory === cat"
+                class="category-btn">
+                <span>{{ cat }}</span>
+                <span class="term-count">
+                  {{ getTermsCount(cat) }}
+                </span>
+              </button>
+            }
+          </nav>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="glossary-main">
+        <div class="search-box-container">
+          <div class="search-input-group">
+            <input type="text" [(ngModel)]="searchTerm" 
+              placeholder="Escribe para buscar... (ej: CG-NAT, 5G, Fibra)"
+              class="search-input">
+            <div class="search-icon">🔍</div>
+          </div>
+
+          <div class="terms-grid">
+            @for (term of filteredTerms; track term.word) {
+              <article class="term-card" [id]="term.slug">
+                <span class="category-tag">
+                  {{ term.category }}
+                </span>
+                <div class="term-header">
+                  <div class="term-icon">
+                    {{ term.icon }}
+                  </div>
+                  <h3 class="term-title" [innerHTML]="highlightText(term.word, searchTerm) | safeHtml"></h3>
+                </div>
+                <p class="term-definition" [innerHTML]="highlightText(term.definition, searchTerm) | safeHtml">
+                </p>
+                <div class="term-footer">
+                  <a (click)="openWhatsapp('Hola, quiero saber más sobre ' + term.word)" class="btn-whatsapp">Saber más →</a>
+                  <button (click)="copyLink(term.slug)" class="copy-link-btn">🔗 Copiar enlace</button>
+                </div>
+              </article>
+            }
+            
+            @if (filteredTerms.length === 0) {
+              <div class="no-results">
+                <p>No se han encontrado términos que coincidan con tu búsqueda.</p>
+                <button (click)="searchTerm = ''; selectedCategory = 'Todos'" class="reset-btn">Limpiar filtros</button>
+              </div>
+            }
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+<section class="pricing-section">
+  <div class="pricing-container">
+    <div class="pricing-header">
+      <h2 class="pricing-title"> nuestros top ventas en elche </h2>
+      <p class="pricing-subtitle">
+        Seleccionamos las mejores ofertas de entre todas las operadoras para que no tengas que buscar.
+      </p>
+    </div>
+
+    <div class="pricing-grid">
+      @for (plan of plans; track plan.id) {
+        <div class="plan-card" [class.most-popular]="plan.tag">
+          
+          @if (plan.tag) {
+            <div class="popular-badge">
+              {{ plan.tag }}
+            </div>
+          }
+
+          <div class="plan-info">
+            <h3 class="plan-name">{{ plan.name }}</h3>
+            
+            <div class="price-box">
+              <span class="price-value">{{ plan.price }}</span>
+              <span class="price-currency">€/mes</span>
+            </div>
+            
+            <p class="plan-description">{{ plan.description }}</p>
+          </div>
+
+          <ul class="features-list">
+            @for (feature of plan.features; track feature) {
+              <li class="feature-item">
+                <span class="check-icon">✔</span>
+                {{ feature }}
+              </li>
+            }
+          </ul>
+
+          <button (click)="selectPlan(plan)" class="cta-button" [class.btn-primary]="plan.tag" [class.btn-dark]="!plan.tag">
+            Lo quiero
+          </button>
+        </div>
+      }
+    </div>
+    
+    <div class="pricing-footer">
+      <p class="footer-note">Precios con IVA incluido y precio final garantizado, sin sorpresas.</p>
+    </div>
+  </div>
+</section>
