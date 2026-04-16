@@ -2,7 +2,7 @@ import { Component, HostListener, Inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule, isPlatformBrowser, NgOptimizedImage } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { StickyWhatsappButtonComponent } from '../../shared/components/sticky-whatsapp-button/sticky-whatsapp-button.component';
+
 import { LeadFormComponent } from '../../shared/components/lead-form/lead-form.component';
 import { SeoService } from '../../core/services/seo.service';
 import { SavingCalculatorComponent } from '../../shared/components/saving-calculator/saving-calculator.component';
@@ -38,7 +38,6 @@ export interface Operator {
         CommonModule,
         FormsModule,
         RouterModule,
-        StickyWhatsappButtonComponent,
         LeadFormComponent,
         SavingCalculatorComponent,
         PricingTableComponent,
@@ -187,12 +186,14 @@ export class HomeComponent {
 
     // Operadores con los que trabajamos
     operators: Operator[] = [
-        { id: 1, name: 'Lowi', logo: 'https://upload.wikimedia.org/wikipedia/commons/e/e0/Logo_Lowi.png' },
-        { id: 2, name: 'Aproop!', logo: 'https://www.aprooptelecom.com/wp-content/uploads/2021/04/Logo-Aproop-Telecom.png' },
-        { id: 3, name: 'O2', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/O2_Logo.svg/2560px-O2_Logo.svg.png' },
+        { id: 1, name: 'Lowi', logo: 'assets/images/logos/Lowi.svg' },
+        { id: 2, name: 'Aproop!', logo: 'assets/images/logos/Aproop.svg' },
+        { id: 3, name: 'O2', logo: 'assets/images/logos/O2.svg' },
+        { id: 7, name: 'Orange', logo: 'assets/images/logos/Orange.svg' },
+        { id: 8, name: 'Vodafone', logo: 'assets/images/logos/Vodafone.svg' },
         { id: 4, name: 'Movistar', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Movistar_logo.svg/2560px-Movistar_logo.svg.png' },
         { id: 5, name: 'Redi', logo: 'https://redi.es/wp-content/uploads/2022/01/logo-redi-internet-elche.png' },
-        { id: 6, name: 'Avatel', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_Avatel.svg/2560px-Logo_Avatel.svg.png' },
+        { id: 6, name: 'Avatel', logo: 'assets/images/logos/Avatel.svg' },
     ];
 
     // Ventajas de usar Multi Markt

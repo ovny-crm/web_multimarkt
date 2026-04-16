@@ -16,7 +16,7 @@ interface Plan {
   standalone: true,
   imports: [CommonModule],
   template: `
-    <section class="py-24 bg-white">
+    <section class="pricing-section">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
           <h2 class="text-4xl md:text-5xl font-black text-slate-900 mb-4 tracking-tighter uppercase">

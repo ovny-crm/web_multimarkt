@@ -9,8 +9,8 @@
 }
 
 .pricing-section {
-  @extend .py-24;
-  @extend .bg-white;
+  padding: 6rem 0;
+  background-color: $white;
 }
 
 .plan-card {
