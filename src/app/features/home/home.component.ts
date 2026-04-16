@@ -61,80 +61,34 @@ export class HomeComponent {
         @Inject(PLATFORM_ID) private platformId: Object
     ) {
         this.seoService.updateTags({
-            title: 'Mejor Comparador de Fibra, Móvil y Energía en Elche',
-            description: 'Ahorra hasta un 30% en tus facturas. Compara las mejores tarifas de Fibra Óptica, Móvil, Fútbol y Energía con Multi Markt en Elche. Atención personalizada.',
-            url: 'https://multimarkt.ovny.net/'
+            title: 'Asesoría Multi-Markt Elche | Ahorro en Fibra, Móvil y Energía',
+            description: 'Ahorra hasta un 30% en tus facturas con Multi-Markt Elche. Comparamos las mejores tarifas de Fibra Óptica, Móvil y Energía de forma gratuita y personalizada en Elche.',
+            url: 'https://multimarkt.ovny.net/',
+            keywords: 'multi markt elche, asesoria energetica elche, comparar fibra movil elche, ahorro facturas elche, expertos telecomunicaciones elche'
         });
 
-        this.seoService.updateStructuredData({
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "serviceType": "Telecomunicaciones y Energía",
-            "provider": {
-                "@type": "LocalBusiness",
-                "name": "Multi Markt",
-                "address": {
-                    "@type": "PostalAddress",
-                    "streetAddress": "Carrer Josep Bernad Amorós, 108",
-                    "addressLocality": "Elx",
-                    "addressRegion": "Alicante",
-                    "postalCode": "03205",
-                    "addressCountry": "ES"
-                }
-            },
-            "areaServed": {
-                "@type": "City",
-                "name": "Elche"
-            },
-            "hasOfferCatalog": {
-                "@type": "OfferCatalog",
-                "name": "Servicios de Multi Markt",
-                "itemListElement": [
-                    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fibra Óptica" } },
-                    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tarifas Móvil" } },
-                    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pack Fútbol" } },
-                    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Luz y Gas" } }
-                ]
-            }
-        });
+        // Set Local Business Schema (matches Google Business Profile)
+        this.seoService.setLocalBusinessSchema();
 
         const faqs = [
             {
-                question: '¿Qué necesito para que Multi Markt analice mi factura?',
-                answer: 'Solo necesitas una factura reciente (en PDF o foto). Nuestro equipo la analiza para encontrar servicios innecesarios o tarifas más baratas.'
+                question: '¿Qué necesito para que Multi-Markt Elche analice mi factura?',
+                answer: 'Solo necesitas una factura reciente (en PDF o foto). Nuestro equipo local en Elche la analiza para encontrar servicios innecesarios o tarifas más baratas.'
             },
             {
-                question: '¿Tengo que pagar algo por el asesoramiento?',
-                answer: 'No. El servicio de comparación y asesoramiento de Multi-Markt es 100% gratuito para el cliente.'
+                question: '¿Tengo que pagar algo por el asesoramiento en la tienda de Elche?',
+                answer: 'No. El servicio de comparación y asesoramiento de Multi-Markt Elche es 100% gratuito para el cliente.'
             },
             {
-                question: '¿Cuánto tiempo tarda el proceso de cambio de compañía?',
-                answer: 'Normalmente entre 2 y 5 días hábiles, dependiendo del tipo de servicio (fibra o móvil). Nosotros nos encargamos de toda la gestión.'
+                question: '¿Cuánto tiempo tarda el proceso de cambio si contrato en Multi-Markt Elche?',
+                answer: 'Normalmente entre 2 y 5 días hábiles, dependiendo del tipo de servicio (fibra o móvil). Nosotros nos encargamos de toda la gestión desde nuestra oficina en Elche.'
             },
             {
                 question: '¿Puedo contratar fibra aunque no viva en Elche?',
-                answer: 'Sí, trabajamos con operadoras nacionales como O2, Vodafone y Orange que tienen cobertura en toda España.'
+                answer: 'Sí, aunque nuestra tienda física está en Elche, trabajamos con operadoras nacionales como O2, Vodafone y Orange que tienen cobertura en toda España.'
             }
         ];
         this.seoService.setFaqSchema(faqs);
-
-        this.seoService.setStructuredData({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "Multi Markt",
-            "url": "https://multimarkt.ovny.net",
-            "logo": "https://multimarkt.ovny.net/assets/images/logo-planeta-multi-markt.png",
-            "contactPoint": {
-                "@type": "ContactPoint",
-                "telephone": "+34621660580",
-                "contactType": "customer service",
-                "areaServed": "ES",
-                "availableLanguage": "Spanish"
-            },
-            "sameAs": [
-                "https://wa.me/34621660580"
-            ]
-        }, 'org-schema');
     }
     currentYear = new Date().getFullYear();
 

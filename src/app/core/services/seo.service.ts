@@ -20,7 +20,7 @@ export class SeoService {
   private document = inject(DOCUMENT);
 
   private readonly DEFAULT_IMAGE = 'https://multimarkt.ovny.net/assets/images/logo-planeta-multi-markt.png';
-  private readonly SITE_NAME = 'Multi-Markt';
+  private readonly SITE_NAME = 'Multi-Markt Elche';
 
   // Backward compatibility
   updateTitle(title: string) {
@@ -44,7 +44,7 @@ export class SeoService {
 
   updateTags(config: SeoConfig) {
     const title = config.title.includes(this.SITE_NAME) ? config.title : `${config.title} | ${this.SITE_NAME}`;
-    const description = config.description || 'Ahorra en tus facturas con Multi Markt. Compara Fibra, Móvil y Energía en Elche.';
+    const description = config.description || 'Ahorra en tus facturas con Multi-Markt Elche. Expertos en Fibra, Móvil y Energía para particulares y empresas en Elche.';
     const image = config.image || this.DEFAULT_IMAGE;
     
     this.titleService.setTitle(title);
@@ -74,6 +74,51 @@ export class SeoService {
     this.metaService.updateTag({ name: 'twitter:image', content: image });
 
     this.updateCanonicalUrl(config.url);
+  }
+
+  setLocalBusinessSchema() {
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@type": "ConsultingService",
+      "name": "Multi-Markt Elche",
+      "alternateName": "Asesoría Energética y Telecomunicaciones Multi-Markt",
+      "description": "Tu consultoría tecnológica de confianza en Elche. Transformamos tus facturas en ahorro real con asesoramiento humano y experto.",
+      "url": "https://multimarkt.ovny.net/",
+      "logo": this.DEFAULT_IMAGE,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "C/ Josep Bernad Amorós, 108",
+        "addressLocality": "Elche",
+        "addressRegion": "Alicante",
+        "postalCode": "03205",
+        "addressCountry": "ES"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 38.2709,
+        "longitude": -0.7101
+      },
+      "telephone": "+34621660580",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+          "opens": "09:00",
+          "closes": "20:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Friday",
+          "opens": "09:00",
+          "closes": "14:00"
+        }
+      ],
+      "sameAs": [
+        "https://instagram.com/multimarkt_elche",
+        "https://facebook.com/multimarkt"
+      ]
+    };
+    this.setStructuredData(jsonLd, 'local-business-data');
   }
 
   setBreadcrumbs(items: { name: string, url: string }[]) {
