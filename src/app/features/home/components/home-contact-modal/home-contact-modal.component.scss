@@ -1,0 +1,24 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+
+.fixed { position: fixed; }
+.inset-0 { inset: 0; }
+.z-50 { z-index: 50; }
+.flex { display: flex; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.p-4 { padding: 1rem; }
+
+.bg-slate-900\/80 { background-color: rgba($slate-900, 0.8); }
+.backdrop-blur-sm { backdrop-filter: blur(4px); }
+
+.bg-white {
+  background-color: $white;
+  border-radius: $radius-2xl;
+  box-shadow: $shadow-2xl;
+  border-top: 4px solid $primary-blue;
+}
+
+.text-slate-700 { color: $slate-700; }
+.text-slate-500 { color: $slate-500; }
+.text-white { color: $white; }

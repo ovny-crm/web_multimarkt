@@ -1,0 +1,31 @@
+<section id="comparar" class="py-20 bg-gradient-to-br from-slate-900 to-slate-800 relative overflow-hidden">
+    <!-- Glow -->
+    <div
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl">
+    </div>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="bg-white rounded-3xl shadow-2xl shadow-blue-500/10 p-8 md:p-12 border-t-4 border-blue-600">
+            <div class="text-center mb-8">
+                <div
+                    class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-2xl text-white mb-6 shadow-lg shadow-blue-500/30">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                    </svg>
+                </div>
+                <h2 class="text-2xl font-bold text-slate-700 uppercase tracking-wide mb-3">
+                    Descubre tu ahorro
+                </h2>
+                <p class="text-slate-500">
+                    Cuéntanos con qué operador estás y te decimos al momento si podemos bajarte la factura.
+                </p>
+            </div>
+
+            <div class="max-w-md mx-auto">
+                <app-lead-form [showServiceSelector]="true" buttonText="Calcular mi ahorro →"
+                    (formSubmitted)="onLeadSubmitted($event)" />
+            </div>
+        </div>
+    </div>
+</section>

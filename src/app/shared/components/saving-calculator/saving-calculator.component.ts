@@ -57,7 +57,8 @@ import { FormsModule } from '@angular/forms';
                  <p class="text-blue-100/80 text-sm mb-8">¡Equivale a casi <span class="text-white font-bold">{{ monthEquivalent }} meses</span> de tu factura actual gratis!</p>
                  
                  <button (click)="openWhatsapp()" 
-                   class="w-full py-4 bg-emerald-500 hover:bg-emerald-400 text-white font-black rounded-xl transition-all hover:scale-105 shadow-xl shadow-emerald-500/20 uppercase tracking-wide flex items-center justify-center gap-3">
+                    class="btn-whatsapp w-full">
+
                    <span>💬</span>
                    Quiero este ahorro ya
                  </button>
@@ -69,18 +70,7 @@ import { FormsModule } from '@angular/forms';
       </div>
     </section>
   `,
-  styles: [`
-    input[type=range]::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      height: 28px;
-      width: 28px;
-      border-radius: 50%;
-      background: #2563eb;
-      cursor: pointer;
-      box-shadow: 0 0 15px rgba(37, 99, 235, 0.4);
-      border: 4px solid white;
-    }
-  `]
+  styleUrl: './saving-calculator.component.scss'
 })
 export class SavingCalculatorComponent {
   private platformId = inject(PLATFORM_ID);

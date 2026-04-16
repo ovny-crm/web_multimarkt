@@ -1,0 +1,14 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+
+.py-20 { padding-top: 5rem; padding-bottom: 5rem; }
+.bg-white { background-color: $white; }
+
+.bg-slate-50 {
+  @include transition(all 0.3s ease);
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-lg;
+    border-color: rgba($primary-blue, 0.2);
+  }
+}

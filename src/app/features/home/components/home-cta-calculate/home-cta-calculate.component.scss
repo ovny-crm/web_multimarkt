@@ -1,0 +1,21 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+
+.py-20 { padding-top: 5rem; padding-bottom: 5rem; }
+
+#comparar {
+  .bg-white {
+    background-color: $white;
+    border-radius: $radius-3xl;
+    box-shadow: $shadow-2xl;
+    padding: 2rem;
+    border-top: 4px solid $primary-blue;
+
+    @include respond-to('md') {
+      padding: 3rem;
+    }
+  }
+
+  .text-slate-700 { color: $slate-700; }
+  .text-slate-500 { color: $slate-500; }
+}

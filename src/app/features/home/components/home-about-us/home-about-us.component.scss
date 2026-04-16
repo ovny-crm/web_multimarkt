@@ -1,0 +1,10 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+
+#nosotros {
+  .btn-whatsapp {
+    @include btn-whatsapp;
+    display: inline-flex;
+    margin-top: 1rem;
+  }
+}

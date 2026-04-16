@@ -1,0 +1,34 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+
+// Note: The structure relies on global utilities for primary layout,
+// but we add component-specific polish here.
+
+:host {
+  display: block;
+}
+
+.pricing-section {
+  @extend .py-24;
+  @extend .bg-white;
+}
+
+.plan-card {
+  @include transition(all 0.3s cubic-bezier(0.4, 0, 0.2, 1));
+  
+  &:hover {
+    transform: translateY(-0.75rem);
+    
+    &.most-popular {
+      box-shadow: 0 25px 50px -12px rgba($primary-blue, 0.25);
+    }
+  }
+
+  .plan-name {
+    @include flex(flex-start, center, row, 0.5rem);
+  }
+
+  .price-glow {
+    text-shadow: 0 0 20px rgba($primary-blue, 0.1);
+  }
+}

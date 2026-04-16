@@ -32,10 +32,10 @@ export class WhatsappService {
     }
 
     /**
-     * Abre WhatsApp con un mensaje genérico
+     * Abre WhatsApp con un mensaje genérico o personalizado
      */
-    openWhatsapp(): void {
-        const message = '¡Hola! Me gustaría comparar tarifas de telecomunicaciones y ver cuánto puedo ahorrar en mi factura.';
+    openWhatsapp(customMessage?: string): void {
+        const message = customMessage || '¡Hola! Me gustaría comparar tarifas de telecomunicaciones y ver cuánto puedo ahorrar en mi factura.';
         const url = this.buildWhatsappUrl(message);
         if (isPlatformBrowser(this.platformId)) {
             window.open(url, '_blank');

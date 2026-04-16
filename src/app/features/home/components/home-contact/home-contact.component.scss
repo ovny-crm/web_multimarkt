@@ -1,0 +1,25 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+
+.py-20 { padding-top: 5rem; padding-bottom: 5rem; }
+.bg-slate-50 { background-color: $slate-50; }
+
+#contacto {
+  .bg-white {
+    background-color: $white;
+    border-radius: $radius-2xl;
+    padding: 1.5rem;
+    box-shadow: $shadow-lg;
+    border: 1px solid $slate-100;
+    @include transition(all 0.3s ease);
+
+    &:hover {
+      border-color: $primary-blue;
+      box-shadow: $shadow-xl;
+    }
+  }
+
+  .text-slate-700 { color: $slate-700; }
+  .text-slate-600 { color: $slate-600; }
+  .text-cyan-600 { color: $primary-teal; }
+}

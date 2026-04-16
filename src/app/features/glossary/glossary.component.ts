@@ -107,7 +107,7 @@ interface Term {
                        [innerHTML]="highlightText(term.definition, searchTerm) | safeHtml">
                     </p>
                     <div class="mt-10 pt-8 border-t border-white/5 flex items-center justify-between">
-                      <a (click)="openWhatsapp('Hola, quiero saber más sobre ' + term.word)" class="text-xs text-white/40 hover:text-cyan-400 font-black uppercase tracking-widest cursor-pointer">Saber más →</a>
+                      <a (click)="openWhatsapp('Hola, quiero saber más sobre ' + term.word)" class="btn-whatsapp px-4 py-2 text-[10px] tracking-widest cursor-pointer">Saber más →</a>
                       <button (click)="copyLink(term.slug)" class="text-xs text-white/20 hover:text-white transition-opacity">🔗 Copiar enlace</button>
                     </div>
                   </article>

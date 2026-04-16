@@ -7,8 +7,17 @@ import { LeadFormComponent } from '../../shared/components/lead-form/lead-form.c
 import { SeoService } from '../../core/services/seo.service';
 import { SavingCalculatorComponent } from '../../shared/components/saving-calculator/saving-calculator.component';
 import { PricingTableComponent } from '../../shared/components/pricing-table/pricing-table.component';
+import { HomeHeroComponent } from './components/home-hero/home-hero.component';
+import { HomeOperatorsComponent } from './components/home-operators/home-operators.component';
+import { HomeServicesListComponent } from './components/home-services-list/home-services-list.component';
+import { HomeAboutUsComponent } from './components/home-about-us/home-about-us.component';
+import { HomeFaqComponent } from './components/home-faq/home-faq.component';
+import { HomeServicesGridComponent } from './components/home-services-grid/home-services-grid.component';
+import { HomeCtaCalculateComponent } from './components/home-cta-calculate/home-cta-calculate.component';
+import { HomeContactSectionComponent } from './components/home-contact/home-contact.component';
+import { HomeContactModalComponent } from './components/home-contact-modal/home-contact-modal.component';
 
-interface Service {
+export interface Service {
     id: number;
     name: string;
     description: string;
@@ -16,7 +25,7 @@ interface Service {
     features: string[];
 }
 
-interface Operator {
+export interface Operator {
     id: number;
     name: string;
     logo: string;
@@ -33,7 +42,16 @@ interface Operator {
         LeadFormComponent,
         SavingCalculatorComponent,
         PricingTableComponent,
-        NgOptimizedImage
+        NgOptimizedImage,
+        HomeHeroComponent,
+        HomeOperatorsComponent,
+        HomeServicesListComponent,
+        HomeAboutUsComponent,
+        HomeFaqComponent,
+        HomeServicesGridComponent,
+        HomeCtaCalculateComponent,
+        HomeContactSectionComponent,
+        HomeContactModalComponent
     ],
     templateUrl: './home.component.html',
     styleUrl: './home.component.scss'
@@ -169,12 +187,12 @@ export class HomeComponent {
 
     // Operadores con los que trabajamos
     operators: Operator[] = [
-        { id: 1, name: 'O2', logo: 'assets/images/logos/O2.svg' },
-        { id: 2, name: 'Vodafone', logo: 'assets/images/logos/Vodafone.svg' },
-        { id: 3, name: 'Avatel', logo: 'assets/images/logos/Avatel.svg' },
-        { id: 4, name: 'Lowi', logo: 'assets/images/logos/Lowi.svg' },
-        { id: 5, name: 'Aproop!', logo: 'assets/images/logos/Aproop.svg' },
-        { id: 6, name: 'Orange', logo: 'assets/images/logos/Orange.svg' },
+        { id: 1, name: 'Lowi', logo: 'https://upload.wikimedia.org/wikipedia/commons/e/e0/Logo_Lowi.png' },
+        { id: 2, name: 'Aproop!', logo: 'https://www.aprooptelecom.com/wp-content/uploads/2021/04/Logo-Aproop-Telecom.png' },
+        { id: 3, name: 'O2', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/O2_Logo.svg/2560px-O2_Logo.svg.png' },
+        { id: 4, name: 'Movistar', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Movistar_logo.svg/2560px-Movistar_logo.svg.png' },
+        { id: 5, name: 'Redi', logo: 'https://redi.es/wp-content/uploads/2022/01/logo-redi-internet-elche.png' },
+        { id: 6, name: 'Avatel', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_Avatel.svg/2560px-Logo_Avatel.svg.png' },
     ];
 
     // Ventajas de usar Multi Markt

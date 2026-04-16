@@ -1,4 +1,5 @@
-@import 'variables';
+@use 'sass:map';
+@use 'variables' as *;
 
 // Breakpoints
 $breakpoints: (
@@ -28,8 +29,8 @@ $breakpoints: (
 }
 
 @mixin respond-to($breakpoint) {
-  @if map-has-key($breakpoints, $breakpoint) {
-    @media (min-width: map-get($breakpoints, $breakpoint)) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media (min-width: map.get($breakpoints, $breakpoint)) {
       @content;
     }
   }
@@ -73,4 +74,55 @@ $breakpoints: (
   right: 0;
   bottom: 0;
   left: 0;
+}
+
+@mixin btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #25D366 0%, #22c55e 100%);
+  color: $white;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: $radius-full;
+  border: none;
+  box-shadow: 0 10px 20px -5px rgba(#25D366, 0.4);
+  cursor: pointer;
+  @include transition(all 0.3s cubic-bezier(0.4, 0, 0.2, 1));
+  overflow: hidden;
+  position: relative;
+
+  svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    filter: drop-shadow(0 0 5px rgba($white, 0.3));
+    @include transition(transform 0.3s ease);
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px -5px rgba(#25D366, 0.6);
+    filter: brightness(1.05);
+
+    svg {
+      transform: scale(1.2) rotate(-5deg);
+    }
+  }
+
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 15px -5px rgba(#25D366, 0.4);
+  }
+
+  // Glass effect overlay
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba($white, 0.2), transparent);
+    pointer-events: none;
+  }
 }

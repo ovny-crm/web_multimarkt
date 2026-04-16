@@ -1,0 +1,11 @@
+<div class="operators-section">
+    <div class="operators-container">
+        <div class="operators-grid">
+            @for (op of operators; track op.id) {
+            <div class="operator-item">
+               <img [src]="op.logo" [alt]="op.name">
+            </div>
+            }
+        </div>
+    </div>
+</div>

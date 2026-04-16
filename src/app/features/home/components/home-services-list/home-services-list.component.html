@@ -1,0 +1,29 @@
+<section id="servicios" class="services-section">
+    <div class="services-container">
+        <div class="section-header">
+            <span class="section-badge">Soluciones de Ahorro</span>
+            <h2 class="section-title">Comparamos todo por ti</h2>
+            <p class="section-subtitle">
+                Analizamos las mejores ofertas del mercado en tiempo real para ofrecerte solo lo que realmente te hace ahorrar.
+            </p>
+        </div>
+
+        <div class="services-grid">
+            @for (service of services; track service.id) {
+            <div class="service-card" (click)="onServiceClick(service.name)">
+                <div class="service-icon">{{ service.icon }}</div>
+                <h3 class="service-title">{{ service.name }}</h3>
+                <p class="service-desc">{{ service.description }}</p>
+                <div class="service-features">
+                    @for (feature of service.features; track feature) {
+                    <div class="feature-item">
+                        <span class="check">✓</span>
+                        <span>{{ feature }}</span>
+                    </div>
+                    }
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</section>

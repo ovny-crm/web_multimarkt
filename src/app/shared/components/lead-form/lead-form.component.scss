@@ -1,0 +1,44 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+
+.lead-form-container {
+  max-width: 100%;
+}
+
+select {
+  @include transition(all 0.2s ease);
+  
+  &:focus {
+    box-shadow: 0 0 0 4px rgba($primary-teal, 0.15);
+    border-color: $primary-teal;
+  }
+}
+
+.submit-button {
+  @include flex(center, center, row, 0.75rem);
+  @include transition(all 0.3s cubic-bezier(0.4, 0, 0.2, 1));
+  
+  &:not(:disabled):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(#25D366, 0.4);
+    background-color: darken(#25D366, 5%);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.error-text {
+  @include flex(center, center);
+  color: #ef4444;
+  font-size: 0.75rem;
+  margin-top: 0.5rem;
+  animation: shake 0.4s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
