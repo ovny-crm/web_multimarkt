@@ -77,19 +77,6 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
                 </div>
               </div>
             </div>
-
-            <div class="mt-12 pt-10 border-t border-slate-200">
-               <div class="flex items-center gap-4">
-                  <div class="flex -space-x-3">
-                    <img src="https://i.pravatar.cc/100?u=1" class="w-12 h-12 rounded-full border-4 border-white shadow-sm">
-                    <img src="https://i.pravatar.cc/100?u=2" class="w-12 h-12 rounded-full border-4 border-white shadow-sm">
-                    <img src="https://i.pravatar.cc/100?u=3" class="w-12 h-12 rounded-full border-4 border-white shadow-sm">
-                  </div>
-                  <p class="text-sm font-medium text-slate-500">
-                    <span class="text-slate-900 font-bold">Más de 1.000 ilicitanos</span> ya han confiado en nosotros este año.
-                  </p>
-               </div>
-            </div>
           </div>
 
         </div>

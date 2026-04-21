@@ -53,7 +53,7 @@ import { WhatsappService } from '../../../core/services/whatsapp.service';
           </div>
 
           <!-- Quick Form -->
-          <div class="bg-white/90 backdrop-blur-xl rounded-4xl p-10 md:p-14 shadow-2xl shadow-blue-900/10 border border-white/50 relative overflow-hidden">
+          <div class="bg-white/90 backdrop-blur-xl rounded-4xl p-10 md:p-14 shadow-2xl shadow-blue-900/10 border border-white/50 relative overflow-hidden max-w-xl mx-auto lg:mx-0 w-full">
             <div class="relative z-10">
               <div class="mb-10">
                 <h3 class="text-3xl font-black text-slate-900 mb-3 uppercase tracking-tighter">Ver mi ahorro personalizado</h3>

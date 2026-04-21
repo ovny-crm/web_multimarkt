@@ -14,6 +14,8 @@
   .mb-#{$i} { margin-bottom: #{$i * 0.25}rem; }
   .pt-#{$i} { padding-top: #{$i * 0.25}rem; }
   .pb-#{$i} { padding-bottom: #{$i * 0.25}rem; }
+  .w-#{$i} { width: #{$i * 0.25}rem; }
+  .h-#{$i} { height: #{$i * 0.25}rem; }
 }
 
 @include respond-to('sm') {
