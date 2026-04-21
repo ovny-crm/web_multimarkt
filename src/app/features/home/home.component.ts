@@ -1,9 +1,8 @@
 import { Component, HostListener, Inject, PLATFORM_ID } from '@angular/core';
-import { CommonModule, isPlatformBrowser, NgOptimizedImage } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
-import { LeadFormComponent } from '../../shared/components/lead-form/lead-form.component';
 import { SeoService } from '../../core/services/seo.service';
 import { SavingCalculatorComponent } from '../../shared/components/saving-calculator/saving-calculator.component';
 import { PricingTableComponent } from '../../shared/components/pricing-table/pricing-table.component';
@@ -13,9 +12,12 @@ import { HomeServicesListComponent } from './components/home-services-list/home-
 import { HomeAboutUsComponent } from './components/home-about-us/home-about-us.component';
 import { HomeFaqComponent } from './components/home-faq/home-faq.component';
 import { HomeServicesGridComponent } from './components/home-services-grid/home-services-grid.component';
-import { HomeCtaCalculateComponent } from './components/home-cta-calculate/home-cta-calculate.component';
 import { HomeContactSectionComponent } from './components/home-contact/home-contact.component';
 import { HomeContactModalComponent } from './components/home-contact-modal/home-contact-modal.component';
+import { LeadMagnetComponent } from '../../shared/components/lead-magnet/lead-magnet.component';
+import { HomeTrustComponent } from './components/home-trust/home-trust.component';
+import { HomeReviewsComponent } from './components/home-reviews/home-reviews.component';
+import { HomeHowItWorksComponent } from './components/home-how-it-works/home-how-it-works.component';
 
 export interface Service {
     id: number;
@@ -38,19 +40,20 @@ export interface Operator {
         CommonModule,
         FormsModule,
         RouterModule,
-        LeadFormComponent,
         SavingCalculatorComponent,
         PricingTableComponent,
-        NgOptimizedImage,
         HomeHeroComponent,
         HomeOperatorsComponent,
         HomeServicesListComponent,
         HomeAboutUsComponent,
+        HomeReviewsComponent,
         HomeFaqComponent,
         HomeServicesGridComponent,
-        HomeCtaCalculateComponent,
         HomeContactSectionComponent,
-        HomeContactModalComponent
+        HomeContactModalComponent,
+        LeadMagnetComponent,
+        HomeTrustComponent,
+        HomeHowItWorksComponent
     ],
     templateUrl: './home.component.html',
     styleUrl: './home.component.scss'
@@ -89,6 +92,29 @@ export class HomeComponent {
             }
         ];
         this.seoService.setFaqSchema(faqs);
+
+        // Set specific service schema
+        this.seoService.setServiceSchema({
+            name: 'Consultoría en Telecomunicaciones y Energía en Elche',
+            description: 'Asesoramiento gratuito para ahorrar en facturas de fibra, móvil y luz.'
+        });
+
+        this.seoService.setReviewSchema(
+            [
+              {
+                author: 'Cristian Jimenez',
+                text: '¡Una experiencia de 10 en Multimarkt Elche! Fui buscando una solución para reducir mis gastos mensuales y el trato es inmejorable.',
+                rating: 5,
+                date: '2026-04-16'
+              },
+              {
+                author: 'Fher Henarejos Montoya',
+                text: 'La instalación fue muy rápida y demostraron una gran profesionalidad. Sin duda, una empresa definitiva.',
+                rating: 5,
+                date: '2026-02-21'
+              }
+            ]
+          );
     }
     currentYear = new Date().getFullYear();
 

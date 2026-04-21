@@ -1,3 +1,4 @@
+@use 'sass:color';
 @use 'styles/variables' as *;
 @use 'styles/mixins' as *;
 
@@ -217,7 +218,7 @@
     box-shadow: 0 10px 20px -5px rgba(37, 211, 102, 0.3);
 
     &:hover {
-      background: darken(#25D366, 5%);
+      background: color.adjust(#25D366, $lightness: -5%);
       transform: translateY(-2px) scale(1.02);
       box-shadow: 0 15px 25px -5px rgba(37, 211, 102, 0.4);
     }

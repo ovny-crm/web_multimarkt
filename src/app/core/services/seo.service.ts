@@ -151,6 +151,47 @@ export class SeoService {
     this.setStructuredData(jsonLd, 'faq-data');
   }
 
+  setServiceSchema(service: { name: string, description: string, provider?: string }) {
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": service.name,
+      "description": service.description,
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": service.provider || "Multi-Markt Elche",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "C/ Josep Bernad Amorós, 108",
+          "addressLocality": "Elche",
+          "postalCode": "03205"
+        }
+      },
+      "areaServed": "Elche, Alicante"
+    };
+    this.setStructuredData(jsonLd, 'service-data');
+  }
+
+  setReviewSchema(reviews: { author: string, date: string, text: string, rating: number }[]) {
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Multi-Markt Elche",
+      "review": reviews.map(r => ({
+        "@type": "Review",
+        "author": { "@type": "Person", "name": r.author },
+        "datePublished": r.date,
+        "reviewBody": r.text,
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": r.rating,
+          "bestRating": "5"
+        }
+      }))
+    };
+    this.setStructuredData(jsonLd, 'review-data');
+  }
+
   private updateCanonicalUrl(url?: string) {
     const canonicalUrl = url || (typeof window !== 'undefined' ? window.location.href : 'https://multimarkt.ovny.net/');
     

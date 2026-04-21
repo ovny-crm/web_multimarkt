@@ -10,5 +10,8 @@ export const routes: Routes = [
   { path: 'aviso-legal', loadComponent: () => import('./features/legal/legal-notice/legal-notice.component').then(m => m.LegalNoticeComponent) },
   { path: 'cookies', loadComponent: () => import('./features/legal/cookies-policy/cookies-policy.component').then(m => m.CookiesPolicyComponent) },
   { path: 'links', loadComponent: () => import('./features/social-hub/social-hub.component').then(m => m.SocialHubComponent) },
+  { path: 'fibra-barata-elche', loadComponent: () => import('./features/seo-landings/seo-landing.component').then(m => m.SeoLandingComponent) },
+  { path: 'movil-barato-elche', loadComponent: () => import('./features/seo-landings/seo-landing.component').then(m => m.SeoLandingComponent) },
+  { path: 'ahorrar-factura-internet', loadComponent: () => import('./features/seo-landings/seo-landing.component').then(m => m.SeoLandingComponent) },
   { path: '**', redirectTo: '' }
 ];

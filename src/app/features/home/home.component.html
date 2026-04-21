@@ -2,19 +2,25 @@
 
 <app-home-operators [operators]="operators" />
 
+<app-home-how-it-works />
+
 <app-pricing-table />
 
 <app-saving-calculator />
 
+<app-lead-magnet />
+
 <app-home-services-list [services]="services" (openModal)="openContactModal($event)" />
+
+<app-home-trust />
+ 
+<app-home-reviews />
 
 <app-home-about-us (whatsapp)="openWhatsappDirect($event)" />
 
 <app-home-faq />
 
 <app-home-services-grid (whatsapp)="openWhatsappDirect($event)" />
-
-<app-home-cta-calculate (leadSubmit)="onLeadSubmitted($event)" />
 
 <app-home-contact />
 
