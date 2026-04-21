@@ -1,0 +1,23 @@
+<section class="py-20 bg-slate-50 relative overflow-hidden">
+  <!-- Decorative background -->
+  <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-600"></div>
+  
+  <div class="max-w-4xl mx-auto px-4 relative z-10">
+    <app-saving-calculator-header />
+
+    <div class="bg-white rounded-[2.5rem] p-8 md:p-12 shadow-2xl border border-slate-100">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        
+        <app-saving-calculator-slider 
+          [currentBill]="currentBill" 
+          (billChange)="updateBill($event)" />
+
+        <app-saving-calculator-result 
+          [savings]="estimatedSavings" 
+          [months]="monthEquivalent"
+          (submit)="openWhatsapp()" />
+
+      </div>
+    </div>
+  </div>
+</section>
