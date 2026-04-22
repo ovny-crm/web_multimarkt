@@ -42,7 +42,7 @@ export class LegalNoticeComponent {
         this.seoService.updateTags({
             title: 'Aviso Legal',
             description: 'Aviso legal y datos identificativos de Multi Markt, tu supermercado de telecomunicaciones.',
-            url: 'https://web-multimarkt.pages.dev/aviso-legal'
+            url: 'https://multimarkt.ovny.net/aviso-legal'
         });
     }
 }

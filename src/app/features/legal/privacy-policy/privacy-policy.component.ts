@@ -51,7 +51,7 @@ export class PrivacyPolicyComponent {
     this.seoService.updateTags({
       title: 'Política de Privacidad',
       description: 'Consulta nuestra política de privacidad para saber cómo protegemos tus datos en Multi Markt.',
-      url: 'https://web-multimarkt.pages.dev/politica-privacidad'
+      url: 'https://multimarkt.ovny.net/politica-privacidad'
     });
   }
 }

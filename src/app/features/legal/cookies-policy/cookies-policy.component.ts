@@ -39,7 +39,7 @@ export class CookiesPolicyComponent {
         this.seoService.updateTags({
             title: 'Política de Cookies',
             description: 'Información detallada sobre el uso de cookies en la web de Multi Markt.',
-            url: 'https://web-multimarkt.pages.dev/cookies'
+            url: 'https://multimarkt.ovny.net/cookies'
         });
     }
 }
