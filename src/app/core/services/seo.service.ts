@@ -87,7 +87,7 @@ export class SeoService {
       "logo": this.DEFAULT_IMAGE,
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "C/ Josep Bernad Amorós, 108",
+        "streetAddress": "C/ José Bernad Amorós, 108",
         "addressLocality": "Elche",
         "addressRegion": "Alicante",
         "postalCode": "03205",
@@ -162,7 +162,7 @@ export class SeoService {
         "name": service.provider || "Multi-Markt Elche",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "C/ Josep Bernad Amorós, 108",
+          "streetAddress": "C/ José Bernad Amorós, 108",
           "addressLocality": "Elche",
           "postalCode": "03205"
         }

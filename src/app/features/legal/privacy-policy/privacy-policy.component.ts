@@ -18,7 +18,7 @@ import { SeoService } from '../../../core/services/seo.service';
         <h2 class="text-xl font-bold mt-8 mb-4">1. Responsable del Tratamiento</h2>
         <p class="mb-4">
           <strong>Identidad:</strong> Multi Markt<br>
-          <strong>Dirección:</strong> C/ Josep Bernad Amorós, 108, 03205 Elx, Alicante<br>
+          <strong>Dirección:</strong> C/ José Bernad Amorós, 108, 03205 Elx, Alicante<br>
           <strong>Email:</strong> info&#64;multimarkt.eu<br>
           <strong>Teléfono:</strong> 621 66 05 80
         </p>

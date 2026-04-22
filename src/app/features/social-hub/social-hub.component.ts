@@ -34,7 +34,7 @@ import { SeoService } from '../../core/services/seo.service';
           </h1>
           <p class="text-slate-400 text-sm text-center mb-10 max-w-xs leading-relaxed">
             Ahorro real en Fibra, Móvil y Energía<br>
-            📍 Elche · C/ Josep Bernad Amorós 108
+            📍 Elche · C/ José Bernad Amorós 108
           </p>
 
           <!-- Action Buttons -->

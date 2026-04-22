@@ -29,7 +29,7 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
                   <div class="bg-blue-600 h-64 flex flex-col items-center justify-center p-8 text-white text-center">
                     <span class="text-4xl mb-4">📍</span>
                     <h4 class="font-black uppercase tracking-tighter text-xl">Visítanos en Elche</h4>
-                    <p class="text-blue-100 text-sm mt-2">C/ Josep Bernad Amorós, 108</p>
+                    <p class="text-blue-100 text-sm mt-2">C/ José Bernad Amorós, 108</p>
                   </div>
                 </div>
               </div>

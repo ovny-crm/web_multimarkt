@@ -16,7 +16,7 @@ import { SeoService } from '../../../core/services/seo.service';
           En cumplimiento con el deber de información recogido en artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y del Comercio Electrónico, a continuación se reflejan los siguientes datos:
         </p>
         <p class="mb-4">
-          La empresa titular de dominio web es <strong>Multi Markt</strong>, con domicilio a estos efectos en C/ Josep Bernad Amorós, 108, 03205 Elx, Alicante. Correo electrónico de contacto: info&#64;multimarkt.eu.
+          La empresa titular de dominio web es <strong>Multi Markt</strong>, con domicilio a estos efectos en C/ José Bernad Amorós, 108, 03205 Elx, Alicante. Correo electrónico de contacto: info&#64;multimarkt.eu.
         </p>
 
         <h2 class="text-xl font-bold mt-8 mb-4">2. Usuarios</h2>
